@@ -1,7 +1,7 @@
 node() {
-    docker.withRegistry('http://364843010988.dkr.ecr.eu-west-1.amazonaws.com/aidan', '0edf16b3-bcef-48b6-9796-f52a0c69ce39') {
+    docker.withRegistry('http://364843010988.dkr.ecr.eu-west-1.amazonaws.com/aidan', '76f4ee9e-e579-407d-b3c0-b03b537581db') {
 
-        git url: "https://github.com/aidanoflann/dockerfiles", credentialsId: 'fbeb573d-43ca-4b98-9311-b4260d92ef42'
+        git url: "https://github.com/aidanoflann/dockerfiles", credentialsId: 'dc61f703-7780-457a-a44e-9b58dac6aab7'
 
         sh "git rev-parse HEAD > .git/commit-id"
         def commit_id = readFile('.git/commit-id').trim()
