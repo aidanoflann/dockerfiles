@@ -105,3 +105,5 @@ server {
 
 sudo ln -s /etc/nginx/sites-available/jenkins /etc/nginx/sites-enabled/
 sudo service nginx restart
+
+sudo apt-get install docker docker-compose
