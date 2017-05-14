@@ -1,5 +1,5 @@
 node() {
-    docker.withRegistry('364843010988.dkr.ecr.eu-west-1.amazonaws.com/aidan', '0edf16b3-bcef-48b6-9796-f52a0c69ce39') {
+    docker.withRegistry('http://364843010988.dkr.ecr.eu-west-1.amazonaws.com/aidan', '0edf16b3-bcef-48b6-9796-f52a0c69ce39') {
 
         git url: "https://github.com/aidanoflann/dockerfiles", credentialsId: 'fbeb573d-43ca-4b98-9311-b4260d92ef42'
 
