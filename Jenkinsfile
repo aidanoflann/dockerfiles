@@ -8,9 +8,5 @@ node() {
 
         stage "build"
         def app = docker.build "base_python -f base_python/Dockerfile"
-
-        stage "publish"
-        app.push 'master'
-        app.push "${commit_id}"
     }
 }
