@@ -15,9 +15,13 @@ node() {
     sh "echo \$TRIMMED_COMMAND"
 
     stage "build"
+    sh "DOCKER_IMAGE_NAME=base_python"
+    sh "echo \$DOCKER_IMAGE_NAME"
     sh "docker build . -t base_python -f base_python.Dockerfile"
 
     stage "publish"
+    sh "DOCKER_IMAGE_NAME=base_python"
+    sh "echo \$DOCKER_IMAGE_NAME"
     sh "docker tag base_python:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
     sh "docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
 }
