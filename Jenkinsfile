@@ -5,8 +5,8 @@ node() {
     println commit_id
 
     stage "dockerfile_discover"
-    sh "DOCKER_IMAGE_NAME='base_python'"
-    sh "echo $DOCKER_IMAGE_NAME"
+    sh "DOCKER_IMAGE_NAME=base_python"
+    sh "echo \$DOCKER_IMAGE_NAME"
 
     stage "docker_login"
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
