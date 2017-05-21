@@ -6,16 +6,14 @@ node() {
 
     stage "dockerfile_discover"
     def DOCKER_IMAGE_NAME="base_python"
-    println DOCKER_IMAGE_NAME
 
     stage "docker_login"
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
     sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
     sh "\$TRIMMED_COMMAND"
-    println DOCKER_IMAGE_NAME
 
     stage "build"
-    sh "docker build . -t base_python -f base_python.Dockerfile"
+    sh "docker build . -t \${DOCKER_IMAGE_NAME} -f \${DOCKER_IMAGE_NAME}.Dockerfile"
 
     stage "publish"
     sh "docker tag base_python:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
