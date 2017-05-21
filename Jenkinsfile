@@ -5,7 +5,7 @@ node() {
     println commit_id
 
     stage "dockerfile_discover"
-    sh "DOCKER_IMAGE_NAME=base_python"
+    sh "DOCKER_IMAGE_NAME=basepython"
     sh "echo \$DOCKER_IMAGE_NAME"
 
     stage "docker_login"
