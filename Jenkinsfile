@@ -12,16 +12,11 @@ node() {
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
     sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
     sh "\$TRIMMED_COMMAND"
-    sh "echo \$TRIMMED_COMMAND"
 
     stage "build"
-    sh "DOCKER_IMAGE_NAME=base_python"
-    sh "echo \$DOCKER_IMAGE_NAME"
-    sh "docker build . -t \$DOCKER_IMAGE_NAME -f base_python.Dockerfile"
+    sh "docker build . -t base_python -f base_python.Dockerfile"
 
     stage "publish"
-    sh "DOCKER_IMAGE_NAME=base_python"
-    sh "echo \$DOCKER_IMAGE_NAME"
-    sh "docker tag \$DOCKER_IMAGE_NAME:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/\$DOCKER_IMAGE_NAME:latest"
-    sh "docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/\$DOCKER_IMAGE_NAME:latest"
+    sh "docker tag base_python:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
+    sh "docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
 }
