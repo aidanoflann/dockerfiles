@@ -13,7 +13,7 @@ node() {
     sh "\$TRIMMED_COMMAND"
 
     stage "build"
-    sh "DOCKER_IMAGE_NAME=${DOCKER_IMAGE_NAME};" + 'docker build . -t $DOCKER_IMAGE_NAME -f $DOCKER_IMAGE_NAME.Dockerfile'
+    sh "d=${DOCKER_IMAGE_NAME};" + 'docker build . -t d -f d.Dockerfile'
 
     stage "publish"
     sh "docker tag base_python:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
