@@ -10,7 +10,7 @@ node() {
     sh "\$TRIMMED_COMMAND"
 
     stage "build"
-    sh "docker build . -t base_python"
+    sh "docker build . -t base_python -f base_python.Dockerfile"
 
     stage "publish"
     sh "docker tag base_python:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/base_python:latest"
