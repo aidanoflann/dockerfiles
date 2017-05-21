@@ -4,6 +4,10 @@ node() {
     def commit_id = readFile('.git/commit-id').trim()
     println commit_id
 
+    stage "dockerfile_discover"
+    sh "export DOCKER_IMAGE_NAME='base_python'"
+    sh "echo \$DOCKER_IMAGE_NAME"
+
     stage "docker_login"
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
     sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
