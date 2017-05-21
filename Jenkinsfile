@@ -16,6 +16,6 @@ node() {
     sh "DOCKER_IMAGE_NAME=${DOCKER_IMAGE_NAME};" + 'docker build . -t $DOCKER_IMAGE_NAME -f $DOCKER_IMAGE_NAME.Dockerfile'
 
     stage "publish"
-    sh "DOCKER_IMAGE_NAME=${DOCKER_IMAGE_NAME};" + 'docker tag $DOCKER_IMAGE_NAME:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/$DOCKER_IMAGE_NAME:latest'
-    sh 'docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/$DOCKER_IMAGE_NAME:latest'
+    sh 'docker tag ${DOCKER_IMAGE_NAME}:latest 364843010988.dkr.ecr.eu-west-1.amazonaws.com/${DOCKER_IMAGE_NAME}:latest'
+    sh 'docker push 364843010988.dkr.ecr.eu-west-1.amazonaws.com/${DOCKER_IMAGE_NAME}:latest'
 }
