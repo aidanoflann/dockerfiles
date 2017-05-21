@@ -12,6 +12,7 @@ node() {
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
     sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
     sh "\$TRIMMED_COMMAND"
+    sh "echo \$TRIMMED_COMMAND"
 
     stage "build"
     sh "docker build . -t base_python -f base_python.Dockerfile"
