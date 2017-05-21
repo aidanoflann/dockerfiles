@@ -1,4 +1,4 @@
-FROM some-mysql:mysql
+FROM mysql
 MAINTAINER Aidan OFlannagain
 
 RUN apt-get update
