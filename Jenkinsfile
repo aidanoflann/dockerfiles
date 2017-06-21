@@ -4,8 +4,10 @@ node() {
     def commit_id = readFile('.git/commit-id').trim()
     println commit_id
 
-    stage "dockerfile_discover"
-    def DOCKER_IMAGE_NAME="mysql"
+    stage("dockerfile_discover")
+    {
+        def DOCKER_IMAGE_NAME="mysql"
+    }
 
     stage "docker_login"
     sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
