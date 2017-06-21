@@ -1,0 +1,23 @@
+version: '2'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  # DATABASES AND SERVICES #
+
+  mysql_db:
+    container_name: mysql_db
+    image: a9b0af127b8f
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+
+  score_board:
+    container_name: score_board
+    image: 1c14edc47afd
+    ports:
+      - "5000:5000"
+
