@@ -9,7 +9,7 @@ node() {
         def DOCKER_IMAGE_NAME="mysql"
     }
 
-    stage("docker_login")
+    stage("docker_loginn")
     {
         sh "DOCKER_LOGIN_COMMAND=\$(aws ecr get-login)"
         sh "TRIMMED_COMMAND=\$(echo \$DOCKER_LOGIN_COMMAND | tr -d 'https://')"
